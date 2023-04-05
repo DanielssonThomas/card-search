@@ -1,8 +1,9 @@
 import Button from "../components/Button/index";
 
-function Login() {
+function Login(props) {
   return (
     <div className="loginScreen">
+      <pre>{props.accessToken}</pre>
       <Button text="Login" />
     </div>
   );

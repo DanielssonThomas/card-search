@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const url = `https://oauth.battle.net/authorize`;
+const url =
+  "https://eu.api.blizzard.com/hearthstone/cards/679?locale=en_US&access_token=";
 
 const Button = (props) => {
   const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
-    const clientId = "{}";
-    const clientSecret = "{}";
+    const clientId = "";
+    const clientSecret = "";
 
     const requestOptions = {
       method: "POST",
@@ -16,18 +17,24 @@ const Button = (props) => {
       body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`,
     };
 
-    fetch("https://oauth.battle.net/token", requestOptions)
+    fetch("https://us.battle.net/oauth/token", requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        setAccessToken(data.access_token);
+        const accessToken = data.access_token;
+        setAccessToken(accessToken);
       })
       .catch((error) => console.error(error));
   }, []);
 
   return (
-    <Link className="button" to={url}>
+    <a
+      className="button"
+      href={`${url}${accessToken}`}
+      target="_blank"
+      rel="noreferrer"
+    >
       {props.text}
-    </Link>
+    </a>
   );
 };
 
