@@ -1,6 +1,6 @@
-import Login from './pages/Login.js';
 import './App.css';
-import Home from './pages/Home';
+import Login from './pages/login.js';
+import Home from './pages/home.js';
 import {Routes, Route, Link} from 'react-router-dom';
 
 
