@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const url =
-  "https://eu.api.blizzard.com/hearthstone/cards/679?locale=en_US&access_token=";
+//   "https://eu.api.blizzard.com/hearthstone/cards/679?locale=en_US&access_token=";
+"https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&tier=3&access_token=";
 
 const Button = (props) => {
   const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
-    const clientId = "";
-    const clientSecret = "";
+    const clientId = process.env.REACT_APP_ID;
+    const clientSecret = process.env.REACT_APP_SECRET;
 
     const requestOptions = {
       method: "POST",
