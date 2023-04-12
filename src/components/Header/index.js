@@ -1,8 +1,8 @@
 const Header = () => {
   return (
     <div className="header">
-      <div className="moon">
-        <h1>Header</h1>
+      <div>
+        <h1>Hearthstone battlegrounds search</h1>
       </div>
     </div>
   );

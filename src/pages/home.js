@@ -1,4 +1,3 @@
-import Button from "../components/Button/index";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import "./style.css";
@@ -8,7 +7,7 @@ const Home = () => {
   const [accessToken, setAccessToken] = useState(null);
 
   const url =
-    "https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&tier=3&access_token=";
+    "https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&access_token=";
 
   useEffect(() => {
     const clientSecret = process.env.REACT_APP_SECRET;
@@ -38,14 +37,13 @@ const Home = () => {
   let cardsComponent = [];
   if (data != null) {
     cardsComponent = data.cards.map((card) => (
-      <Card key={card.id} src={card.image} name={card.name} />
+      <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
     ));
   }
 
   return (
     <div className="home">
       <div className="cards-container">{cardsComponent}</div>
-      {/* <Button text="Search" tier="" minion-type="" golden="" keyword="" /> */}
     </div>
   );
 };
