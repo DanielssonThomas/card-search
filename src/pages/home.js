@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import SearchBar from "../components/SearchBar";
 import { useState, useEffect } from "react";
 import "./style.css";
 
@@ -42,7 +43,9 @@ const Home = () => {
   }
 
   return (
-    <div className="home">
+    <div>
+      <SearchBar />
+      <section className="home"></section>
       <div className="cards-container">{cardsComponent}</div>
     </div>
   );
