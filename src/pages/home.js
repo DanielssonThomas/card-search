@@ -6,9 +6,10 @@ import "./style.css";
 const Home = () => {
   const [data, setData] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
+  const [tier, setTier] = useState("");
+  const [type, setType] = useState("");
 
-  const url =
-    "https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&access_token=";
+  const url = `https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&tier=${tier}&minionType=${type}&access_token=`;
 
   useEffect(() => {
     const clientSecret = process.env.REACT_APP_SECRET;
@@ -33,7 +34,7 @@ const Home = () => {
       setData(data);
     };
     fetchData();
-  }, []);
+  }, [tier, type]);
 
   let cardsComponent = [];
   if (data != null) {
@@ -44,7 +45,7 @@ const Home = () => {
 
   return (
     <div>
-      <SearchBar />
+      <SearchBar setType={setType} setTier={setTier}/>
       <section className="home"></section>
       <div className="cards-container">{cardsComponent}</div>
     </div>
