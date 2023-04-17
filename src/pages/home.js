@@ -9,7 +9,13 @@ const Home = () => {
   const [tier, setTier] = useState("");
   const [type, setType] = useState("");
 
+  // const url = `https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&tier=${tier}&minionType=${type}&access_token=`;
   const url = `https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&tier=${tier}&minionType=${type}&access_token=`;
+
+
+
+
+
 
   useEffect(() => {
     const clientSecret = process.env.REACT_APP_SECRET;
