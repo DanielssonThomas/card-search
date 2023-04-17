@@ -26,7 +26,6 @@ const Button = (props) => {
     <div className="type-button" onClick={handleClick}>
         {props.text}
         {props.value}
-        {/* {addStars(props.src, props.value)} */}
     </div>
   );
 };
