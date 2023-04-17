@@ -25,6 +25,7 @@ const Button = (props) => {
   return (
     <div className="star-btn" onClick={handleClick}>
       <div class = "star-container">
+        {props.text}
         {addStars(props.src, props.value)}
       </div>
     </div>

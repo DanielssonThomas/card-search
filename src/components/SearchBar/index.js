@@ -8,6 +8,9 @@ const SearchBar = (props) => {
     <div className="search-bar-container">
       <section className="search-container">
         <div class = "tier-search">
+          <TierButton setTier={props.setTier} type="tier" value="" text="Reset" />
+        </div>
+        <div class = "tier-search">
           <TierButton setTier={props.setTier} type="tier" value="1" src={image} />
         </div>
         <div class = "tier-search">
@@ -27,6 +30,7 @@ const SearchBar = (props) => {
         </div>
       </section>
       <section className="search-container type-search">
+        <TypeButton setType={props.setType} type="type" value="" text="Reset" />
         <TypeButton setType={props.setType} type="type" value="murloc" src={image} />
         <TypeButton setType={props.setType} type="type" value="mech" src={image} />
         <TypeButton setType={props.setType} type="type" value="dragon" src={image} />
