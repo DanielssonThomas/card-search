@@ -3,6 +3,9 @@ import TypeButton from "../typeButton";
 import "./style.css";
 import image from "./../../assets/Star.webp";
 import { useState } from "react";
+
+
+
 const SearchBar = (props) => {
   return (
     <div className="search-bar-container">
@@ -39,6 +42,7 @@ const SearchBar = (props) => {
         <TypeButton setType={props.setType} type="type" value="demon" src={image} />
         <TypeButton setType={props.setType} type="type" value="elemental" src={image} />
         <TypeButton setType={props.setType} type="type" value="pirate" src={image} />
+        <TypeButton setType={props.setType} type="type" value="naga" src={image} />
       </section>
     </div>
   );
