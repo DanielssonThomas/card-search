@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./pages/Home.js";
+import Home from "./pages/home.js";
 import Header from "./components/Header";
 import { Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
