@@ -8,16 +8,29 @@ const SearchBar = (props) => {
   const addTierButtons = () => {
     const tierButtons = [];
     for (let i = 1; i <= 6; i++) {
-      tierButtons.push(
-        <div className="tier-search">
-          <TierButton
-            setTier={props.setTier}
-            type="tier"
-            value={i}
-            src={image}
-          />
-        </div>
-      );
+      if (i == props.tier) {
+        tierButtons.push(
+          <div className="tier-search button-active">
+            <TierButton
+              setTier={props.setTier}
+              type="tier"
+              value={i}
+              src={image}
+            />
+          </div>
+        );
+      } else {
+        tierButtons.push(
+          <div className="tier-search">
+            <TierButton
+              setTier={props.setTier}
+              type="tier"
+              value={i}
+              src={image}
+            />
+          </div>
+        );
+      }
     }
     return tierButtons;
   };
@@ -37,14 +50,25 @@ const SearchBar = (props) => {
     ];
 
     types.forEach((type) => {
-      typeButtons.push(
-        <TypeButton
-          setType={props.setType}
-          type="type"
-          value={type}
-          src={image}
-        />
-      );
+      if (type == props.type) {
+        typeButtons.push(
+          <TypeButton
+            setType={props.setType}
+            value={type}
+            src={image}
+            style="type-button button-active"
+          />
+        );
+      } else {
+        typeButtons.push(
+          <TypeButton
+            setType={props.setType}
+            value={type}
+            src={image}
+            style="type-button"
+          />
+        );
+      }
     });
 
     return typeButtons;
@@ -52,7 +76,7 @@ const SearchBar = (props) => {
   return (
     <div className="search-bar-container">
       <section className="search-container">
-        <div class="tier-search">
+        <div className="tier-search">
           <TierButton
             setTier={props.setTier}
             type="tier"
@@ -63,7 +87,13 @@ const SearchBar = (props) => {
         {addTierButtons()}
       </section>
       <section className="search-container type-search">
-        <TypeButton setType={props.setType} type="type" value="" text="Reset" />
+        <TypeButton
+          setType={props.setType}
+          type="type"
+          value=""
+          text="Reset"
+          style="type-button"
+        />
         {addTypeButtons()}
       </section>
     </div>

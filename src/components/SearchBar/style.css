@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap:20px;
+  gap: 20px;
 }
 
 .tier-search {
@@ -27,14 +27,17 @@
   box-sizing: border-box;
 }
 
+.button-active {
+  box-shadow: 0 0 5px purple, 0 0 20px purple, 0 0 40px purple, 0 0 80px purple;
+}
 
-.btn:hover{
+.btn:hover {
   cursor: pointer;
 }
 
-.tier-search:hover{
+.tier-search:hover {
   box-shadow: 0 0 5px purple, 0 0 20px purple, 0 0 40px purple, 0 0 80px purple;
 }
-.type-button:hover{
+.type-button:hover {
   box-shadow: 0 0 5px purple, 0 0 20px purple, 0 0 40px purple, 0 0 80px purple;
 }
