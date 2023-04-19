@@ -4,45 +4,67 @@ import "./style.css";
 import image from "./../../assets/Star.webp";
 import { useState } from "react";
 
-
-
 const SearchBar = (props) => {
+  const addTierButtons = () => {
+    const tierButtons = [];
+    for (let i = 1; i <= 6; i++) {
+      tierButtons.push(
+        <div className="tier-search">
+          <TierButton
+            setTier={props.setTier}
+            type="tier"
+            value={i}
+            src={image}
+          />
+        </div>
+      );
+    }
+    return tierButtons;
+  };
+
+  const addTypeButtons = () => {
+    const typeButtons = [];
+    const types = [
+      "murloc",
+      "mech",
+      "dragon",
+      "beast",
+      "quilboar",
+      "demon",
+      "elemental",
+      "pirate",
+      "naga",
+    ];
+
+    types.forEach((type) => {
+      typeButtons.push(
+        <TypeButton
+          setType={props.setType}
+          type="type"
+          value={type}
+          src={image}
+        />
+      );
+    });
+
+    return typeButtons;
+  };
   return (
     <div className="search-bar-container">
       <section className="search-container">
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="" text="Reset" />
+        <div class="tier-search">
+          <TierButton
+            setTier={props.setTier}
+            type="tier"
+            value=""
+            text="Reset"
+          />
         </div>
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="1" src={image} />
-        </div>
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="2" src={image} />
-        </div>
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="3" src={image} />
-        </div>
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="4" src={image} />
-        </div>
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="5" src={image} />
-        </div>
-        <div class = "tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="6" src={image} />
-        </div>
+        {addTierButtons()}
       </section>
       <section className="search-container type-search">
         <TypeButton setType={props.setType} type="type" value="" text="Reset" />
-        <TypeButton setType={props.setType} type="type" value="murloc" src={image} />
-        <TypeButton setType={props.setType} type="type" value="mech" src={image} />
-        <TypeButton setType={props.setType} type="type" value="dragon" src={image} />
-        <TypeButton setType={props.setType} type="type" value="beast" src={image} />
-        <TypeButton setType={props.setType} type="type" value="quilboar" src={image} />
-        <TypeButton setType={props.setType} type="type" value="demon" src={image} />
-        <TypeButton setType={props.setType} type="type" value="elemental" src={image} />
-        <TypeButton setType={props.setType} type="type" value="pirate" src={image} />
-        <TypeButton setType={props.setType} type="type" value="naga" src={image} />
+        {addTypeButtons()}
       </section>
     </div>
   );
