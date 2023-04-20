@@ -1,7 +1,10 @@
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./style.css";
+
+
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -9,7 +12,6 @@ const Home = () => {
   const [tier, setTier] = useState("");
   const [type, setType] = useState("");
 
-  // const url = `https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&tier=${tier}&minionType=${type}&access_token=`;
   const url = `https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&tier=${tier}&minionType=${type}&access_token=`;
 
   useEffect(() => {
@@ -42,15 +44,19 @@ const Home = () => {
     cardsComponent = data.cards.map((card) => (
       <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
     ));
+    return (
+      <div>
+        <SearchBar tier={tier} type={type} setType={setType} setTier={setTier} />
+        <section className="home"></section>
+        <div className="cards-container">{cardsComponent}</div>
+      </div>
+    );
   }
-
-  return (
-    <div>
-      <SearchBar tier={tier} type={type} setType={setType} setTier={setTier} />
-      <section className="home"></section>
-      <div className="cards-container">{cardsComponent}</div>
-    </div>
-  );
+  else{
+    return(
+      <h1>Searching...</h1>
+    );
+  }
 };
 
 export default Home;
