@@ -9,9 +9,14 @@
 
 .search-container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+.reset-btn{
+  background-color: blue;
 }
 
 .tier-search {
@@ -36,8 +41,8 @@
 }
 
 .tier-search:hover {
-  box-shadow: 0 0 5px purple, 0 0 20px purple, 0 0 40px purple, 0 0 80px purple;
+  box-shadow: 0 0 5px orange, 0 0 20px orange, 0 0 40px orange, 0 0 80px orange;
 }
 .type-button:hover {
-  box-shadow: 0 0 5px purple, 0 0 20px purple, 0 0 40px purple, 0 0 80px purple;
+  box-shadow: 0 0 5px orange, 0 0 20px orange, 0 0 40px orange, 0 0 80px orange;
 }

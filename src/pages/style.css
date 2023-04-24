@@ -10,3 +10,25 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.cards-container div{
+  width: 200px;
+}
+.cards-container div img{
+  height: 100%;
+  width: 100%;
+}
+@media only screen and (min-width: 800px) {
+  .cards-container div{
+    width: 250px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .cards-container div{
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .cards-container div{
+    width: 400px;
+  }
+}
