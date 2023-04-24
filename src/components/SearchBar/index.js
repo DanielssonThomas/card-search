@@ -75,25 +75,18 @@ const SearchBar = (props) => {
   };
   return (
     <div className="search-bar-container">
-      <section className="search-container">
-        <div className="tier-search">
-          <TierButton
-            setTier={props.setTier}
-            type="tier"
-            value=""
-            text="Reset"
-          />
-        </div>
-        {addTierButtons()}
-      </section>
+      <div className="tier-search">
+        <TierButton setTier={props.setTier} type="tier" value="" text="Reset" />
+      </div>
+      <section className="search-container">{addTierButtons()}</section>
+      <TypeButton
+        setType={props.setType}
+        type="type"
+        value=""
+        text="Reset"
+        style="type-button"
+      />
       <section className="search-container type-search">
-        <TypeButton
-          setType={props.setType}
-          type="type"
-          value=""
-          text="Reset"
-          style="type-button"
-        />
         {addTypeButtons()}
       </section>
     </div>
