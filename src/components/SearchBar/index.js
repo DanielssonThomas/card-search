@@ -1,10 +1,32 @@
 import TierButton from "../tierButton";
 import TypeButton from "../typeButton";
 import "./style.css";
+import styled from "styled-components";
 import image from "./../../assets/Star.webp";
 import { useState } from "react";
+import Button from "../tierButton";
+
+
+const DropDownMenu = styled.div`
+  flex-direction: column;
+  gap: 20px;
+  display: ${props => props.hide ? 'none' : 'flex'};
+`;
+
+const OpenDropDownMenuButton = styled.button`
+  background-color: purple;
+  border: 2px solid black;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px 15px;
+`;
 
 const SearchBar = (props) => {
+  const [dropDownMenuVisible, setDropDownMenuVisible] = useState(false);
+  const toggleDropDownMenu = () => {
+    setDropDownMenuVisible(!dropDownMenuVisible);
+  };
   const addTierButtons = () => {
     const tierButtons = [];
     for (let i = 1; i <= 6; i++) {
@@ -75,20 +97,21 @@ const SearchBar = (props) => {
   };
   return (
     <div className="search-bar-container">
-      <div className="tier-search">
-        <TierButton setTier={props.setTier} type="tier" value="" text="Reset" />
-      </div>
-      <section className="search-container">{addTierButtons()}</section>
-      <TypeButton
+      <OpenDropDownMenuButton onClick={toggleDropDownMenu}>Filter Cards</OpenDropDownMenuButton>
+      <DropDownMenu className="search-bar-container" hide={!dropDownMenuVisible}>
+        <div className="tier-search">
+          <TierButton setTier={props.setTier} type="tier" value="" text="Reset" />
+        </div>
+        <section className="search-container">{addTierButtons()}</section>
+        <TypeButton
         setType={props.setType}
         type="type"
         value=""
         text="Reset"
         style="type-button"
-      />
-      <section className="search-container type-search">
-        {addTypeButtons()}
-      </section>
+        />
+        <section className="search-container type-search">{addTypeButtons()}</section>
+      </DropDownMenu>
     </div>
   );
 };
