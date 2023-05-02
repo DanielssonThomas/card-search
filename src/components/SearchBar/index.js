@@ -147,7 +147,7 @@ const SearchBar = (props) => {
         </div>
         <section className="search-container">{addTierButtons()}</section>
         <TypeButton
-          key="teag"
+          key="typeReset"
           setType={props.setType}
           type="type"
           value=""
@@ -158,9 +158,9 @@ const SearchBar = (props) => {
           {addTypeButtons()}
         </section>
 
-        <TypeButton
-          key="teag"
-          setType={props.setType}
+        <KeyButton
+          key="typeReset"
+          setKeyword={props.setKeyword}
           type="type"
           value=""
           text="Reset"
