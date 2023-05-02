@@ -2,13 +2,13 @@ import "./style.css";
 import image from "./../../assets/Star.webp";
 import { useState } from "react";
 
-function addStars(src, amount) {
-  const stars = [];
-  for (let i = 0; i < amount; i++) {
-    stars.push(<img key={i} src={src} />);
-  }
-  return stars;
-}
+// function addStars(src, amount) {
+//   const stars = [];
+//   for (let i = 0; i < amount; i++) {
+//     stars.push(<img key={i} src={src} />);
+//   }
+//   return stars;
+// }
 
 const Button = (props) => {
   const handleClick = () => {
@@ -20,7 +20,8 @@ const Button = (props) => {
     <div className="star-btn" onClick={handleClick}>
       <div className="star-container">
         {props.text}
-        {addStars(props.src, props.value)}
+        {props.value}
+        {/* {addStars(props.src, props.value)} */}
       </div>
     </div>
   );
