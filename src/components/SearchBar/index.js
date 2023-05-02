@@ -32,25 +32,27 @@ const SearchBar = (props) => {
     for (let i = 1; i <= 6; i++) {
       if (i == props.tier) {
         tierButtons.push(
-          <TierButton
-            key={i}
-            setTier={props.setTier}
-            type="tier"
-            value={i}
-            src={image}
-            style="button button-active"
-          />
+          <div className="tier-search button-active">
+            <TierButton
+              key={i}
+              setTier={props.setTier}
+              type="tier"
+              value={i}
+              src={image}
+            />
+          </div>
         );
       } else {
         tierButtons.push(
-          <TierButton
-            key={i}
-            setTier={props.setTier}
-            type="tier"
-            value={i}
-            src={image}
-            style="button"
-          />
+          <div className="tier-search">
+            <TierButton
+              key={i}
+              setTier={props.setTier}
+              type="tier"
+              value={i}
+              src={image}
+            />
+          </div>
         );
       }
     }
@@ -80,7 +82,7 @@ const SearchBar = (props) => {
             setType={props.setType}
             value={type}
             src={image}
-            style="button button-active"
+            style="type-button button-active"
           />
         );
       } else {
@@ -90,7 +92,7 @@ const SearchBar = (props) => {
             setType={props.setType}
             value={type}
             src={image}
-            style="button"
+            style="type-button"
           />
         );
       }
@@ -102,7 +104,7 @@ const SearchBar = (props) => {
     const keyButtons = [];
     const keyWords = [
       "avenge",
-      "battlecry",
+      "battlecry", 
       "blood-gem",
       "deathrattle",
       "discover",
@@ -119,7 +121,6 @@ const SearchBar = (props) => {
           setKeyword={props.setKeyword}
           value={word}
           src={image}
-          style="button"
         />
       );
     });
@@ -131,39 +132,43 @@ const SearchBar = (props) => {
       <OpenDropDownMenuButton onClick={toggleDropDownMenu}>
         Filter Cards
       </OpenDropDownMenuButton>
-
       <DropDownMenu
         className="search-bar-container"
         hide={!dropDownMenuVisible}
       >
-        <TierButton
-          key="tierReset"
-          setTier={props.setTier}
-          type="tier"
-          text="Reset"
-          style="button"
-        />
-
+        <div className="tier-search">
+          <TierButton
+            key="tierReset"
+            setTier={props.setTier}
+            type="tier"
+            value=""
+            text="Reset"
+          />
+        </div>
         <section className="search-container">{addTierButtons()}</section>
-
         <TypeButton
           key="typeReset"
           setType={props.setType}
           type="type"
+          value=""
           text="Reset"
-          style="button"
+          style="type-button"
         />
-
-        <section className="search-container">{addTypeButtons()}</section>
+        <section className="search-container type-search">
+          {addTypeButtons()}
+        </section>
 
         <KeyButton
           key="keywordReset"
           setKeyword={props.setKeyword}
+          type="type"
+          value=""
           text="Reset"
-          style="button"
+          style="type-button"
         />
         <section className="search-container">{addKeywordButtons()}</section>
       </DropDownMenu>
+      <section className="search-container"></section>
     </div>
   );
 };
