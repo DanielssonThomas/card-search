@@ -38,6 +38,7 @@ const Home = () => {
       setData(data);
     };
     fetchData();
+    console.log(data);
   }, [tier, type, keyword]);
 
   let cardsComponent = [];
@@ -45,13 +46,25 @@ const Home = () => {
     cardsComponent = data.cards.map((card) => (
       <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
     ));
-    return (
-      <div>
-        <SearchBar tier={tier} type={type} setKeyword={setKeyword} setType={setType} setTier={setTier} />
-        <section className="home"></section>
-        <div className="cards-container">{cardsComponent}</div>
-      </div>
-    );
+    if(data.cards.length <= 0)
+    {
+      return(
+        <div>
+          <SearchBar tier={tier} type={type} setKeyword={setKeyword} setType={setType} setTier={setTier} />
+          <h1>No cards found :(</h1>
+        </div>
+      )
+    }
+    else
+    {
+      return (
+        <div>
+          <SearchBar tier={tier} type={type} setKeyword={setKeyword} setType={setType} setTier={setTier} />
+          <section className="home"></section>
+          <div className="cards-container">{cardsComponent}</div>
+        </div>
+      );
+    }
   }
   else{
     return(
