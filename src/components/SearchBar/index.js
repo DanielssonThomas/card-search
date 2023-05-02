@@ -102,13 +102,23 @@ const SearchBar = (props) => {
 
   const addKeywordButtons = () => {
     const keyButtons = [];
-    const keyWords = ["battlecry", "deathrattle", "reborn"];
+    const keyWords = [
+      "avenge",
+      "battlecry", 
+      "blood-gem",
+      "deathrattle",
+      "discover",
+      "divine-shield",
+      "frenzy",
+      "immune",
+      // "magnetic",
+    ];
 
     keyWords.forEach((word) => {
       keyButtons.push(
         <KeyButton
           key={word}
-          setType={props.setKeyword}
+          setKeyword={props.setKeyword}
           value={word}
           src={image}
         />

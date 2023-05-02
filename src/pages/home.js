@@ -38,7 +38,7 @@ const Home = () => {
       setData(data);
     };
     fetchData();
-  }, [tier, type]);
+  }, [tier, type, keyword]);
 
   let cardsComponent = [];
   if (data != null) {
