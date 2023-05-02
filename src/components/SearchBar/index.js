@@ -111,15 +111,6 @@ const SearchBar = (props) => {
       >
         <div className="tier-search">
           <TierButton
-            setTier={props.setTier}
-            type="tier"
-            value=""
-            text="Reset"
-          />
-        </div>
-        <section className="search-container">{addTierButtons()}</section>
-        <div className="tier-search">
-          <TierButton
             key="tierBtn"
             setTier={props.setTier}
             type="tier"
