@@ -6,11 +6,10 @@ import image from "./../../assets/Star.webp";
 import { useState } from "react";
 import Button from "../tierButton";
 
-
 const DropDownMenu = styled.div`
   flex-direction: column;
   gap: 20px;
-  display: ${props => props.hide ? 'none' : 'flex'};
+  display: ${(props) => (props.hide ? "none" : "flex")};
 `;
 
 const OpenDropDownMenuButton = styled.button`
@@ -34,6 +33,7 @@ const SearchBar = (props) => {
         tierButtons.push(
           <div className="tier-search button-active">
             <TierButton
+              key={i}
               setTier={props.setTier}
               type="tier"
               value={i}
@@ -45,6 +45,7 @@ const SearchBar = (props) => {
         tierButtons.push(
           <div className="tier-search">
             <TierButton
+              key={i}
               setTier={props.setTier}
               type="tier"
               value={i}
@@ -69,12 +70,14 @@ const SearchBar = (props) => {
       "elemental",
       "pirate",
       "naga",
+      "undead",
     ];
 
     types.forEach((type) => {
       if (type == props.type) {
         typeButtons.push(
           <TypeButton
+            key={type}
             setType={props.setType}
             value={type}
             src={image}
@@ -84,6 +87,7 @@ const SearchBar = (props) => {
       } else {
         typeButtons.push(
           <TypeButton
+            key={type}
             setType={props.setType}
             value={type}
             src={image}
@@ -95,23 +99,31 @@ const SearchBar = (props) => {
 
     return typeButtons;
   };
+
   return (
     <div className="search-bar-container">
-      <OpenDropDownMenuButton onClick={toggleDropDownMenu}>Filter Cards</OpenDropDownMenuButton>
-      <DropDownMenu className="search-bar-container" hide={!dropDownMenuVisible}>
-        <div className="tier-search">
-          <TierButton setTier={props.setTier} type="tier" value="" text="Reset" />
-        </div>
-        <section className="search-container">{addTierButtons()}</section>
-        <TypeButton
+      <div className="tier-search">
+        <TierButton
+          key="tierBtn"
+          setTier={props.setTier}
+          type="tier"
+          value=""
+          text="Reset"
+        />
+      </div>
+      <section className="search-container">{addTierButtons()}</section>
+      <TypeButton
+        key="teag"
         setType={props.setType}
         type="type"
         value=""
         text="Reset"
         style="type-button"
-        />
-        <section className="search-container type-search">{addTypeButtons()}</section>
-      </DropDownMenu>
+      />
+      <section className="search-container type-search">
+        {addTypeButtons()}
+      </section>
+      <section className="search-container"></section>
     </div>
   );
 };
