@@ -1,5 +1,6 @@
 import TierButton from "../tierButton";
 import TypeButton from "../typeButton";
+import KeyButton from "../keyButton";
 import "./style.css";
 import styled from "styled-components";
 import image from "./../../assets/Star.webp";
@@ -96,8 +97,24 @@ const SearchBar = (props) => {
         );
       }
     });
-
     return typeButtons;
+  };
+
+  const addKeywordButtons = () => {
+    const keyButtons = [];
+    const keyWords = ["battlecry", "deathrattle", "reborn"];
+
+    keyWords.forEach((word) => {
+      keyButtons.push(
+        <KeyButton
+          key={word}
+          setType={props.setKeyword}
+          value={word}
+          src={image}
+        />
+      );
+    });
+    return keyButtons;
   };
 
   return (
@@ -130,6 +147,16 @@ const SearchBar = (props) => {
         <section className="search-container type-search">
           {addTypeButtons()}
         </section>
+
+        <TypeButton
+          key="teag"
+          setType={props.setType}
+          type="type"
+          value=""
+          text="Reset"
+          style="type-button"
+        />
+        <section className="search-container">{addKeywordButtons()}</section>
       </DropDownMenu>
       <section className="search-container"></section>
     </div>
