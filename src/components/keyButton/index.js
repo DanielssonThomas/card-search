@@ -1,4 +1,3 @@
-import "./style.css";
 import { useState } from "react";
 
 const Button = (props) => {
@@ -8,7 +7,7 @@ const Button = (props) => {
   };
 
   return (
-    <div className="keyButton" onClick={handleClick}>
+    <div className={props.style} onClick={handleClick}>
       <div>
         {props.text}
         {props.value}

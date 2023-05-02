@@ -1,4 +1,3 @@
-import "./style.css";
 import image from "./../../assets/Star.webp";
 import { useState } from "react";
 

@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./style.css";
 
-
-
 const Home = () => {
   const [data, setData] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
@@ -46,31 +44,38 @@ const Home = () => {
     cardsComponent = data.cards.map((card) => (
       <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
     ));
-    if(data.cards.length <= 0)
-    {
-      return(
+    if (data.cards.length <= 0) {
+      return (
         <div>
-          <SearchBar tier={tier} type={type} setKeyword={setKeyword} setType={setType} setTier={setTier} />
+          <SearchBar
+            tier={tier}
+            type={type}
+            setKeyword={setKeyword}
+            setType={setType}
+            setTier={setTier}
+          />
           <h1>No cards found :(</h1>
         </div>
-      )
-    }
-    else
-    {
+      );
+    } else {
       return (
         <div>
           <h1>{data.cards.length} cards found</h1>
-          <SearchBar tier={tier} type={type} setKeyword={setKeyword} setType={setType} setTier={setTier} />
+          <SearchBar
+            tier={tier}
+            type={type}
+            keyword={keyword}
+            setKeyword={setKeyword}
+            setType={setType}
+            setTier={setTier}
+          />
           <section className="home"></section>
           <div className="cards-container">{cardsComponent}</div>
         </div>
       );
     }
-  }
-  else{
-    return(
-      <h1>Searching...</h1>
-    );
+  } else {
+    return <h1>Searching...</h1>;
   }
 };
 

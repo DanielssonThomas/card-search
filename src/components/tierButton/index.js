@@ -1,4 +1,3 @@
-import "./style.css";
 import image from "./../../assets/Star.webp";
 import { useState } from "react";
 
@@ -17,11 +16,9 @@ const Button = (props) => {
   };
 
   return (
-    <div className="star-btn" onClick={handleClick}>
-      <div className="star-container">
-        {props.text}
-        {props.value}
-      </div>
+    <div className={props.style} onClick={handleClick}>
+      {props.text}
+      {props.value}
     </div>
   );
 };
