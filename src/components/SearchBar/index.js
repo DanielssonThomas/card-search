@@ -102,27 +102,44 @@ const SearchBar = (props) => {
 
   return (
     <div className="search-bar-container">
-      <div className="tier-search">
-        <TierButton
-          key="tierBtn"
-          setTier={props.setTier}
-          type="tier"
+      <OpenDropDownMenuButton onClick={toggleDropDownMenu}>
+        Filter Cards
+      </OpenDropDownMenuButton>
+      <DropDownMenu
+        className="search-bar-container"
+        hide={!dropDownMenuVisible}
+      >
+        <div className="tier-search">
+          <TierButton
+            setTier={props.setTier}
+            type="tier"
+            value=""
+            text="Reset"
+          />
+        </div>
+        <section className="search-container">{addTierButtons()}</section>
+        <div className="tier-search">
+          <TierButton
+            key="tierBtn"
+            setTier={props.setTier}
+            type="tier"
+            value=""
+            text="Reset"
+          />
+        </div>
+        <section className="search-container">{addTierButtons()}</section>
+        <TypeButton
+          key="teag"
+          setType={props.setType}
+          type="type"
           value=""
           text="Reset"
+          style="type-button"
         />
-      </div>
-      <section className="search-container">{addTierButtons()}</section>
-      <TypeButton
-        key="teag"
-        setType={props.setType}
-        type="type"
-        value=""
-        text="Reset"
-        style="type-button"
-      />
-      <section className="search-container type-search">
-        {addTypeButtons()}
-      </section>
+        <section className="search-container type-search">
+          {addTypeButtons()}
+        </section>
+      </DropDownMenu>
       <section className="search-container"></section>
     </div>
   );
