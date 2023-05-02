@@ -59,6 +59,7 @@ const Home = () => {
     {
       return (
         <div>
+          <h1>{data.cards.length} cards found</h1>
           <SearchBar tier={tier} type={type} setKeyword={setKeyword} setType={setType} setTier={setTier} />
           <section className="home"></section>
           <div className="cards-container">{cardsComponent}</div>
