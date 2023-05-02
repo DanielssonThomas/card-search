@@ -4,6 +4,18 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./style.css";
 
+const DataReportWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+`;
+
+const DataReport = styled.h2`
+  font-size: 2rem;
+  color: #009ae4;
+`;
+
 const Home = () => {
   const [data, setData] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
@@ -54,13 +66,17 @@ const Home = () => {
             setType={setType}
             setTier={setTier}
           />
-          <h1>No cards found :(</h1>
+          <DataReportWrapper>
+            <DataReport>No cards found :(</DataReport>
+          </DataReportWrapper>
         </div>
       );
     } else {
       return (
         <div>
-          <h1>{data.cards.length} cards found</h1>
+          <DataReportWrapper>
+            <DataReport>{data.cards.length} cards found</DataReport>
+          </DataReportWrapper>
           <SearchBar
             tier={tier}
             type={type}
@@ -75,7 +91,11 @@ const Home = () => {
       );
     }
   } else {
-    return <h1>Searching...</h1>;
+    return (
+      <DataReportWrapper>
+        <DataReport>Searching...</DataReport>
+      </DataReportWrapper>
+    );
   }
 };
 
