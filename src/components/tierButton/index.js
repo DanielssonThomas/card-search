@@ -21,7 +21,6 @@ const Button = (props) => {
       <div className="star-container">
         {props.text}
         {props.value}
-        {/* {addStars(props.src, props.value)} */}
       </div>
     </div>
   );
