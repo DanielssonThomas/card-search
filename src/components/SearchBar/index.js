@@ -20,6 +20,9 @@ const OpenDropDownMenuButton = styled.button`
   font-size: 24px;
   font-weight: bold;
   padding: 5px 15px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const SearchBar = (props) => {
