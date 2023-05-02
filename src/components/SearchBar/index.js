@@ -25,6 +25,37 @@ const OpenDropDownMenuButton = styled.button`
   }
 `;
 
+const SearchSectionWrapper = styled.section`
+  width: 70%;
+  @media (max-width: 890px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const SearchRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  @media (max-width: 890px) {
+    justify-content: center;
+  }
+`;
+
+const SearchHeadingWrapper = styled.div`
+  width: 70%;
+  border-bottom: 1px solid black;
+`;
+
+const SearchHeading = styled.h3`
+  color: white;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+`;
+
 const SearchBar = (props) => {
   const [dropDownMenuVisible, setDropDownMenuVisible] = useState(false);
   const toggleDropDownMenu = () => {
@@ -149,36 +180,53 @@ const SearchBar = (props) => {
         className="search-bar-container"
         hide={!dropDownMenuVisible}
       >
-        <TierButton
-          key="tierReset"
-          setTier={props.setTier}
-          type="tier"
-          value=""
-          text="Reset"
-          style="button"
-        />
-        <section className="search-container">{addTierButtons()}</section>
-        <TypeButton
-          key="typeReset"
-          setType={props.setType}
-          type="type"
-          value=""
-          text="Reset"
-          style="button"
-        />
-        <section className="search-container type-search">
-          {addTypeButtons()}
-        </section>
+        <SearchHeadingWrapper>
+          <SearchHeading>Select tier:</SearchHeading>
+        </SearchHeadingWrapper>
 
-        <KeyButton
-          key="keywordReset"
-          setKeyword={props.setKeyword}
-          type="type"
-          value=""
-          text="Reset"
-          style="button"
-        />
-        <section className="search-container">{addKeywordButtons()}</section>
+        <SearchSectionWrapper>
+          <TierButton
+            key="tierReset"
+            setTier={props.setTier}
+            type="tier"
+            value=""
+            text="Reset"
+            style="resetBtn"
+          />
+          <SearchRow>{addTierButtons()}</SearchRow>
+        </SearchSectionWrapper>
+
+        <SearchHeadingWrapper>
+          <SearchHeading>Select type:</SearchHeading>
+        </SearchHeadingWrapper>
+
+        <SearchSectionWrapper>
+          <TypeButton
+            key="typeReset"
+            setType={props.setType}
+            type="type"
+            value=""
+            text="Reset"
+            style="resetBtn"
+          />
+          <SearchRow>{addTypeButtons()}</SearchRow>
+        </SearchSectionWrapper>
+
+        <SearchHeadingWrapper>
+          <SearchHeading>Select keyword:</SearchHeading>
+        </SearchHeadingWrapper>
+
+        <SearchSectionWrapper>
+          <KeyButton
+            key="keywordReset"
+            setKeyword={props.setKeyword}
+            type="type"
+            value=""
+            text="Reset"
+            style="resetBtn"
+          />
+          <SearchRow>{addKeywordButtons()}</SearchRow>
+        </SearchSectionWrapper>
       </DropDownMenu>
     </div>
   );

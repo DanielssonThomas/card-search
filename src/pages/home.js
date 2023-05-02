@@ -85,7 +85,6 @@ const Home = () => {
             setType={setType}
             setTier={setTier}
           />
-          <section className="home"></section>
           <div className="cards-container">{cardsComponent}</div>
         </div>
       );
