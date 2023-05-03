@@ -26,6 +26,7 @@ const Home = () => {
   const url = `https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds&pageSize=1000&type=minion&sort=tier:asc&tier=${tier}&minionType=${type}&keyword=${keyword}&access_token=`;
 
   useEffect(() => {
+    setData(null);
     const clientSecret = process.env.REACT_APP_SECRET;
     const clientId = process.env.REACT_APP_ID;
 
