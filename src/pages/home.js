@@ -105,6 +105,7 @@ const Home = () => {
           <SearchBar
               tier={tier}
               type={type}
+              keyword={keyword}
               setKeyword={setKeyword}
               setType={setType}
               setTier={setTier}
