@@ -55,64 +55,100 @@ const Home = () => {
   let cardsComponent = [];
 
 
-
-
-  /////////////
-  if (data != null) {
-    cardsComponent = data.cards.map((card) => (
-      <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
-    ));
-    if (data.cards.length <= 0) {
-      return (
-        <div>
-          <DataReportWrapper>
-            <DataReport>No cards found :(</DataReport>
-          </DataReportWrapper>
-          <SearchBar
-            tier={tier}
-            type={type}
-            keyword={keyword}
-            setKeyword={setKeyword}
-            setType={setType}
-            setTier={setTier}
-          />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <DataReportWrapper>
-            <DataReport>{data.cards.length} cards found</DataReport>
-          </DataReportWrapper>
-          <SearchBar
-            tier={tier}
-            type={type}
-            keyword={keyword}
-            setKeyword={setKeyword}
-            setType={setType}
-            setTier={setTier}
-          />
-          <div className="cards-container">{cardsComponent}</div>
-        </div>
-      );
-    }
-  } else {
-    return (
-      <div>
-        <DataReportWrapper>
-          <DataReport>Searching...</DataReport>
-        </DataReportWrapper>
-          <SearchBar
-              tier={tier}
-              type={type}
-              keyword={keyword}
-              setKeyword={setKeyword}
-              setType={setType}
-              setTier={setTier}
-            />
-      </div>
-    );
+  let dataReportText = "";
+  if(data == null)
+  {
+    dataReportText = "Searching...";
   }
+  else
+  {
+    if(data.cards.length <= 0){
+      dataReportText = "no cards found";
+    }
+    else
+    {
+      dataReportText = `${data.cards.length} cards found`
+    }
+  }
+
+  if(data != null)
+  {
+    cardsComponent = data.cards.map((card) => (
+    <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
+    ));
+  }
+  return (
+    <div>
+      <DataReportWrapper>
+        <DataReport>{dataReportText}</DataReport>
+      </DataReportWrapper>
+      <SearchBar
+        tier={tier}
+        type={type}
+        keyword={keyword}
+        setKeyword={setKeyword}
+        setType={setType}
+        setTier={setTier}
+      />
+      <div className="cards-container">{cardsComponent}</div>
+    </div>
+  );
+  /////////////
+  // if (data != null) {
+    // cardsComponent = data.cards.map((card) => (
+    //   <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
+    // ));
+  //   if (data.cards.length <= 0) {
+  //     return (
+  //       <div>
+  //         <DataReportWrapper>
+  //           <DataReport>No cards found :(</DataReport>
+  //         </DataReportWrapper>
+  //         <SearchBar
+  //           tier={tier}
+  //           type={type}
+  //           keyword={keyword}
+  //           setKeyword={setKeyword}
+  //           setType={setType}
+  //           setTier={setTier}
+  //         />
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div>
+  //         <DataReportWrapper>
+  //           <DataReport>{data.cards.length} cards found</DataReport>
+  //         </DataReportWrapper>
+  //         <SearchBar
+  //           tier={tier}
+  //           type={type}
+  //           keyword={keyword}
+  //           setKeyword={setKeyword}
+  //           setType={setType}
+  //           setTier={setTier}
+  //         />
+          // <div className="cards-container">{cardsComponent}</div>
+  //       </div>
+  //     );
+  //   }
+  // } else {
+  //   return (
+  //     <div>
+  //       <DataReportWrapper>
+  //         <DataReport>Searching...</DataReport>
+  //       </DataReportWrapper>
+  //         <SearchBar
+  //             tier={tier}
+  //             type={type}
+  //             keyword={keyword}
+  //             setKeyword={setKeyword}
+  //             setType={setType}
+  //             setTier={setTier}
+  //           />
+  //     </div>
+  //   );
+  // }
 };
 
 export default Home;
