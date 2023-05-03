@@ -57,7 +57,7 @@ const SearchHeading = styled.h3`
 `;
 
 const SearchBar = (props) => {
-  const [dropDownMenuVisible, setDropDownMenuVisible] = useState(true);
+  const [dropDownMenuVisible, setDropDownMenuVisible] = useState(false);
   const toggleDropDownMenu = () => {
     setDropDownMenuVisible(!dropDownMenuVisible);
   };
