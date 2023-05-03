@@ -53,6 +53,11 @@ const Home = () => {
   }, [tier, type, keyword]);
 
   let cardsComponent = [];
+
+
+
+
+  /////////////
   if (data != null) {
     cardsComponent = data.cards.map((card) => (
       <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
@@ -66,6 +71,7 @@ const Home = () => {
           <SearchBar
             tier={tier}
             type={type}
+            keyword={keyword}
             setKeyword={setKeyword}
             setType={setType}
             setTier={setTier}
