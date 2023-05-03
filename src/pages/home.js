@@ -60,6 +60,9 @@ const Home = () => {
     if (data.cards.length <= 0) {
       return (
         <div>
+          <DataReportWrapper>
+            <DataReport>No cards found :(</DataReport>
+          </DataReportWrapper>
           <SearchBar
             tier={tier}
             type={type}
@@ -67,9 +70,6 @@ const Home = () => {
             setType={setType}
             setTier={setTier}
           />
-          <DataReportWrapper>
-            <DataReport>No cards found :(</DataReport>
-          </DataReportWrapper>
         </div>
       );
     } else {
@@ -92,9 +92,18 @@ const Home = () => {
     }
   } else {
     return (
-      <DataReportWrapper>
-        <DataReport>Searching...</DataReport>
-      </DataReportWrapper>
+      <div>
+        <DataReportWrapper>
+          <DataReport>Searching...</DataReport>
+        </DataReportWrapper>
+          <SearchBar
+              tier={tier}
+              type={type}
+              setKeyword={setKeyword}
+              setType={setType}
+              setTier={setTier}
+            />
+      </div>
     );
   }
 };
