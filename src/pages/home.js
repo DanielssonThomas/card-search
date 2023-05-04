@@ -54,31 +54,24 @@ const Home = () => {
 
   let cardsComponent = [];
 
-
   let dataReportText = "";
-  if(data == null)
-  {
+  if (data == null) {
     dataReportText = "Searching...";
-  }
-  else
-  {
-    if(data.cards.length <= 0){
+  } else {
+    if (data.cards.length <= 0) {
       dataReportText = "no cards found";
-    }
-    else
-    {
-      dataReportText = `${data.cards.length} cards found`
+    } else {
+      dataReportText = `${data.cards.length} cards found`;
     }
   }
 
-  if(data != null)
-  {
+  if (data != null) {
     cardsComponent = data.cards.map((card) => (
-    <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
+      <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
     ));
   }
   return (
-    <div>
+    <div className="main-container">
       <DataReportWrapper>
         <DataReport>{dataReportText}</DataReport>
       </DataReportWrapper>
@@ -95,9 +88,9 @@ const Home = () => {
   );
   /////////////
   // if (data != null) {
-    // cardsComponent = data.cards.map((card) => (
-    //   <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
-    // ));
+  // cardsComponent = data.cards.map((card) => (
+  //   <Card key={card.id} src={card.battlegrounds.image} name={card.name} />
+  // ));
   //   if (data.cards.length <= 0) {
   //     return (
   //       <div>
@@ -128,7 +121,7 @@ const Home = () => {
   //           setType={setType}
   //           setTier={setTier}
   //         />
-          // <div className="cards-container">{cardsComponent}</div>
+  // <div className="cards-container">{cardsComponent}</div>
   //       </div>
   //     );
   //   }
