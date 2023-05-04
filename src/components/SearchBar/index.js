@@ -143,6 +143,8 @@ const SearchBar = (props) => {
       "divine-shield",
       "frenzy",
       "immune",
+      "poisonous",
+      "spellcraft"
     ];
 
     keyWords.forEach((word) => {
