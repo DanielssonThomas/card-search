@@ -144,7 +144,7 @@ const SearchBar = (props) => {
       "frenzy",
       "immune",
       "venomous",
-      "spellcraft"
+      "spellcraft",
     ];
 
     keyWords.forEach((word) => {
